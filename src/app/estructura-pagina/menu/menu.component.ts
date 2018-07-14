@@ -10,14 +10,12 @@ import { EstructuraService } from '../estructura.service';
 })
 export class MenuComponent implements OnInit {
   usuario: Usuario;
-  reportes: any[];
+  menuAdmin: any[];
+  menuUsuario: any[];
   // 
   constructor(private _service: EstructuraService) {
-    this.reportes = [{
-      nombre: 'Ventas',
-      icono: 'fa fa-list nav-icon'
-    }];
-   }
+
+  }
 
   ngOnInit() {
   }

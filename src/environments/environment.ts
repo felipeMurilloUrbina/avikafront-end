@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  urlBase: ''
+  urlBase: 'http://api.avika.facturasiweb.com/',
+  // urlBase: 'http://localhost:50249/',
+  AppId: '099153c2625149bc8ecb3e85e03f0022'
 };
 
 /*

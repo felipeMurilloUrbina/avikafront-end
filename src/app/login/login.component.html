@@ -1,14 +1,15 @@
-<p-growl [(value)]="msgs"></p-growl>	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form #loginForm="ngForm" class="login100-form validate-form">
 					<span class="login100-form-title p-b-43">
-						Factura Siweb
+						<div class="site-title image-logo">
+							<img src="assets/img/logo-avika-dark.png" style="width:56%;"/>
+						</div>
 					</span>
 					
 					<div class="wrap-input100 validate-input" data-validate="Usuario es requerido">
-						<input class="input100" type="text" name="nombre-usuario" #nombreUsuarioInput [value]="usuario.NombreUsuario" (change)="usuario.NombreUsuario = nombreUsuarioInput.value"
+						<input class="input100" type="text" name="nombre-usuario" #nombreUsuarioInput [value]="usuario.username" (change)="usuario.username = nombreUsuarioInput.value"
 						 [ngClass]="{ 'has-val':nombreUsuarioInput.value !== '' }" required>
 						<span class="focus-input100"></span>
 						<span class="label-input100" >Usuario</span>
@@ -16,13 +17,13 @@
 					
 					
 					<div class="wrap-input100 validate-input" id='msg-contra' data-validate="Contraseña es requerida">
-						<input class="input100" id="contra" type="password" name="contra"  #contraInput [value]="usuario.Contra" (change)="usuario.Contra = contraInput.value"
+						<input class="input100" id="password" type="password" name="password"  #contraInput [value]="usuario.password" (change)="usuario.password = contraInput.value"
 						[ngClass]="{ 'has-val':nombreUsuarioInput.value !== '' }" required>
 						<span class="focus-input100"></span>
 						<span class="label-input100">Contraseña</span>
 					</div>
 					<div class="wrap-select" *ngIf="sucursales.length > 0">
-    					<select #sucursalIdInput [value]="usuario.SucursalId" (change)="usuario.SucursalId = sucursalIdInput.value">
+    					<select #sucursalIdInput [value]="usuario.sucursalId" (change)="usuario.sucursalId = sucursalIdInput.value">
               				<option value ="" selected="selected">*Seleccione la  sucursal</option>
                				<option  value="{{suc.Id}}" *ngFor="let suc of sucursales">{{suc.Id}}--{{suc.Descripcion}}</option>
 					 	</select>

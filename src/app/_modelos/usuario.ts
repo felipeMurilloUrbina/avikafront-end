@@ -1,7 +1,8 @@
 ﻿export class Usuario {
     id: number;
-    username: string;
-    password: string;
+    username = '';
+    password = '';
     firstName: string;
     lastName: string;
+    sucursalId: number;
 }
