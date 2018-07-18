@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { UsuarioRoutingModule } from './usuario-routing.module';
 import { UsuarioComponent } from './usuario.component';
+import { ModulosMaterial } from '../../_helpers/modulosCompartidos.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    ModulosMaterial,
     UsuarioRoutingModule
   ],
   declarations: [UsuarioComponent]

@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./departamento.component.css']
 })
 export class DepartamentoComponent implements OnInit {
-
-  constructor() { }
+  titulo = 'Departamentos';
+  constructor() { 
+    console.log('0');
+  }
 
   ngOnInit() {
   }

@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
     this.servicio.activarEsperando();
     this.servicio.login(this.usuario).subscribe(data => {
       this.servicio.cerrarEsperando();
+      this.router.navigate(['/admin']);
     }, error => {
       this.servicio.cerrarEsperando();
       this.servicio.enviarMensaje(MensajeEstatus.error, 'Error de sesion', error.error_description);

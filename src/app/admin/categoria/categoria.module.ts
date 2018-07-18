@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { CategoriaRoutingModule } from './categoria-routing.module';
 import { CategoriaComponent } from './categoria.component';
+import { ModulosMaterial } from '../../_helpers/modulosCompartidos.module';
+
 
 @NgModule({
   imports: [
-    CommonModule,
+    ModulosMaterial,
     CategoriaRoutingModule
   ],
   declarations: [CategoriaComponent]

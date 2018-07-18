@@ -9,6 +9,9 @@ import { PiePaginaComponent } from './pie-pagina';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { InventariosModule } from '../reportes/inventarios/inventarios.module';
+import { RouterModule } from '@angular/router';
+import { EstructuraRoutingModule } from './estructura-routing.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -20,11 +23,13 @@ import { InventariosModule } from '../reportes/inventarios/inventarios.module';
     PiePaginaComponent
   ],
   imports: [
+    CommonModule,
     VentasModule,
     InventariosModule,
-    BrowserModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
+    EstructuraRoutingModule,
     HttpClientModule,
   ],
   exports: [EstructuraComponent],

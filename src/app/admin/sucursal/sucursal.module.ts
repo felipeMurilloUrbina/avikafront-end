@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NoticiaRoutingModule } from './noticia-routing.module';
-import { NoticiaComponent } from './noticia.component';
+import { SucursalRoutingModule } from './sucursal-routing.module';
+import { SucursalComponent } from './sucursal.component';
 import { ModulosMaterial } from '../../_helpers/modulosCompartidos.module';
 
 @NgModule({
   imports: [
     ModulosMaterial,
-    NoticiaRoutingModule
+    SucursalRoutingModule
   ],
-  declarations: [NoticiaComponent]
+  declarations: [SucursalComponent]
 })
-export class NoticiaModule { }
+export class SucursalModule { }

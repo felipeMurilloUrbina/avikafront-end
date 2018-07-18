@@ -12,18 +12,16 @@ import { LoginComponent } from './login';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NoticiaComponent } from './admin/noticia/noticia.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NoticiaComponent
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule,
     BrowserAnimationsModule,
+    BrowserModule,
     FormsModule,
     InventariosModule,
     ReactiveFormsModule,

@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { DepartamentoRoutingModule } from './departamento-routing.module';
 import { DepartamentoComponent } from './departamento.component';
+import { ModulosMaterial } from '../../_helpers/modulosCompartidos.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    ModulosMaterial,
     DepartamentoRoutingModule
   ],
   declarations: [DepartamentoComponent]

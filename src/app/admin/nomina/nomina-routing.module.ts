@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PerfilComponent } from './perfil.component';
+import { NominaComponent } from './nomina.component';
 
 const routes: Routes = [
-  {path: '', component: PerfilComponent }
+  { path: '', component: NominaComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PerfilRoutingModule { }
+export class NominaRoutingModule { }
