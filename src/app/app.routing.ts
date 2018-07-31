@@ -2,11 +2,12 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { HashLocationStrategy } from '@angular/common';
-import { EstructuraComponent } from './estructura-pagina/estructura/estructura.component';
-import { EstructuraModule } from './estructura-pagina/estructura.module';
+import { AuthGuard } from './_guards';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'admin', loadChildren: './estructura-pagina/estructura.module#EstructuraModule' },
+  { path: 'admin', loadChildren: './admin/struct/struct.module#StructModule' },
+  { path: 'cliente', loadChildren: './client/client.module#ClientModule'},
+  { path: 'empleado', loadChildren: './employee/employee.module#EmployeeModule'},
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: 'login' }
 ];

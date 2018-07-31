@@ -1,5 +1,7 @@
-import { Headers } from '@angular/http';
-
-export const contentHeaders = new Headers();
-contentHeaders.append('Cache-Control', 'no-cache');
-contentHeaders.append('Content-Type', 'application/json');
+import { HttpHeaders } from '@angular/common/http';
+export let httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Cache-Control': 'no-cache',
+    })
+  };

@@ -1,0 +1,29 @@
+<div class="col-md-12">
+  <div class="card">
+    <!-- <div class="card-header"></div> -->
+    <div class="card-body">
+      <form #departmentForm="ngForm" (submit)="save(phone);" ngNativeValidate >
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>No:</label>
+              <input type="text" class="form-control" #idInput id="id" [value]="department.id" (change)="department.id = idInput.value" placeholder="Codigo ..." disabled>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Descripción:</label>
+              <input type="text" class="form-control" id="description" #descriptionInput id="description" [value]="department.description" (change)="department.description = descriptionInput.value" placeholder="Descripcion ..." required>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid text-center">
+          <a class="btn btn-app" routerLink="/admin/departamentos">
+            <i class="fa fa-arrow-circle-left"></i> Cancelar
+          </a>
+          <button type="submit" class="btn btn-app"><i class="fa fa-save"></i>Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

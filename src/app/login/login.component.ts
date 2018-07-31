@@ -1,10 +1,10 @@
-import { AuthenticationService } from './../_servicios/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MensajeEstatus } from '../_modelos/mensaje.enum';
-import { Usuario } from '../_modelos/usuario';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { MessageStatus } from '../_models/message.enum';
+import { AuthenticationService } from '../_providers';
+import { User } from '../_models/user';
  declare var $: any;
 @Component({
   selector: 'app-login',
@@ -18,14 +18,13 @@ export class LoginComponent implements OnInit {
   sucursales = [];
   sucursalId = '';
   isBlocked =  false;
-  usuario: Usuario;
+  usuario: User;
   constructor(private router: Router, private _fb: FormBuilder, private servicio: AuthenticationService) {
     localStorage.removeItem('token');
   }
 
   ngOnInit() {
-    this.usuario = new Usuario();
-
+    this.usuario = new User();
   }
 
   // Evento para activar metodo login cuando se presiona enter.
@@ -37,7 +36,7 @@ export class LoginComponent implements OnInit {
   // Metodo valida el usuario y contraseña y consume end point para obtener token.
   login() {
     if (this.sucursales.length > 0) {
-      localStorage.setItem('sucursal', this.usuario.sucursalId.toString());
+      localStorage.setItem('sucursal', this.usuario.companyId.toString());
       this.router.navigate(['/admin']);
     }
     // Valida si la contraseña esta vacia.
@@ -45,13 +44,26 @@ export class LoginComponent implements OnInit {
       $('#msg-contra').addClass('alert-validate');
       return false;
     }
-    this.servicio.activarEsperando();
+    this.servicio.show();
     this.servicio.login(this.usuario).subscribe(data => {
-      this.servicio.cerrarEsperando();
-      this.router.navigate(['/admin']);
+      this.servicio.hide();
+      const helper = new JwtHelperService();
+      const token= localStorage.getItem('token');
+      const decodedToken = helper.decodeToken(token);
+      switch(decodedToken.role) {
+        case 'Administrador':
+          this.router.navigate(['/admin']);
+        break;
+        case 'Empleado':
+          this.router.navigate(['/empleado']);
+        break;
+        case 'Cliente':
+          this.router.navigate(['/cliente']);
+        break;
+      }
     }, error => {
-      this.servicio.cerrarEsperando();
-      this.servicio.enviarMensaje(MensajeEstatus.error, 'Error de sesion', error.error_description);
+      console.log(error);
+      // this.servicio.hide();
     });
   }
 }

@@ -1,0 +1,7 @@
+<div class="form-group">
+    <label>Departamento:</label>
+    <select class="form-control select2" #departmentIdInput [value]="departmentId" (change)="departmentId = departmentIdInput.value" id="departmentId" style="width: 100%;">
+      <option selected="selected">[*Seleccione un Departamento]</option>
+      <option value="{{department.id}}" *ngFor="let department of departments">{{department.description}}</option>
+    </select>
+  </div>

@@ -23,16 +23,17 @@
               "src/assets"
             ],
             "styles": [
-              {
-                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
-              },
               "src/styles.css",
               "src/assets/css/adminlte.min.css",
-              "src/assets/font-awesome/css/font-awesome.min.css",
+              "./node_modules/font-awesome/css/font-awesome.min.css",
               "src/assets/css/theme.css",
               "src/assets/css/main.css",
               "src/assets/css/util.css",
+              "./node_modules/primeng/resources/themes/omega/theme.css",
+              "./node_modules/primeng/resources/primeng.min.css",
+              "./node_modules/primeicons/primeicons.css",
               "src/assets/vendor/waitme/waitMe.min.css",
+              "./node_modules/@chenfengyuan/datepicker/dist/datepicker.css",
               "./node_modules/angular2-toaster/toaster.min.css"
             ],
             "scripts": [
@@ -47,11 +48,13 @@
               "src/assets/vendor/slimScroll/jquery.slimscroll.min.js",
               "src/assets/vendor/knob/jquery.knob.js",
               "src/assets/vendor/chart.js/Chart.min.js",
+              "./node_modules/@chenfengyuan/datepicker/dist/datepicker.js",
               "src/assets/vendor/jvectormap/jquery-jvectormap-1.2.2.min.js",
               "src/assets/vendor/jvectormap/jquery-jvectormap-world-mill-en.js",
               "src/assets/input-mask/jquery.inputmask.js",
               "src/assets/input-mask/jquery.inputmask.extensions.js",
               "src/assets/js/jquery.dataTables.js",
+              "src/assets/js/plugins/datepicker/es-es.js",
               "src/assets/js/dataTables.buttons.min.js",
               "src/assets/js/buttons.print.min.js"
             ]
@@ -101,9 +104,6 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              {
-                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
-              },
               "src/styles.css"
             ],
             "scripts": [],

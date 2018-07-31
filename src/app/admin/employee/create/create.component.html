@@ -1,0 +1,93 @@
+<div class="col-md-12">
+    <div class="card">
+      <!-- <div class="card-header"></div> -->
+      <div class="card-body">
+        <form #employeeForm="ngForm" (submit)="save(employee);" ngNativeValidate>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text" class="form-control"  #nameInput id="name" [value]="employee.name" (change)="employee.name = nameInput.value" placeholder="Nombre ..." required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Apellido Paterno:</label>
+                <input type="text" class="form-control" #lastNameInput id="lastName" [value]="employee.lastName" (change)="employee.lastName = lastNameInput.value" placeholder="Apellido Paterno..." required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Apellido Materno:</label>
+                <input type="text" class="form-control" #motherLastNameInput id="motherLastName" [value]="employee.motherLastName" (change)="employee.MotherLastName = motherLastNameInput.value" placeholder="Apellido Materno ...">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>RFC:</label>
+                <input type="text" class="form-control" #rfcInput [value]="employee.rfc" (change)="employee.rfc = rfcInput.value" id="rfc" placeholder="RFC ..." required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>CURP:</label>
+                <input type="text" class="form-control" #curpInput [value]="employee.curp" (change)="employee.curp = curpInput.value" id="curp" placeholder="CURP ...">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>IMSS:</label>
+                <input type="text" class="form-control" #imssInput [value]="employee.imss" (change)="employee.imss = imssInput.value" id="imss" placeholder="Numero Social...">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="birthDate">Fecha de Nacimiento:</label>
+              <div class="input-group">
+                <input type="date" class="form-control docs-date"  #birthDateDateInput id="birthDate" name="birthDate" [value]="employee.birthDate | date:'yyyy-MM-dd'" (change)="employee.birthDate = birthDateDateInput.value" placeholder="Elija Fecha de Nacimiento">
+                <div class="input-group-append">
+                  <button type="button" class="btn btn-outline-secondary docs-datepicker-trigger">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Correo:</label>
+                <input type="email" class="form-control" #emailInput [value]="employee.email" (change)="employee.email = emailInput.value" id="departmentId" placeholder="Correo ..." required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="gauge">Salario:</label>
+                <input type="number" class="form-control" #gaugeInput [value]="employee.guage" (change)="employee.gauge = gaugeInput.value" id="gauge" placeholder="Salario ...">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="start-work">Fecha Inicio Laboral:</label>
+              <div class="input-group">
+                <input type="date" class="form-control docs-date"  #startWorkDateInput id="start-work" name="start-work" [value]="employee.startWorkDate | date:'yyyy-MM-dd'" (change)="employee.startWorkDate = startWorkDateInput.value"  placeholder="Eliga Fecha de contratación">
+                <div class="input-group-append">
+                  <button type="button" class="btn btn-outline-secondary docs-datepicker-trigger" >
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div  class="container-fluid text-center">
+            <a class="btn btn-app" routerLink="/admin/employees">
+              <i class="fa fa-arrow-circle-left"></i> Cancelar
+            </a>
+            <button type="submit" class="btn btn-app"><i class="fa fa-save"></i>Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

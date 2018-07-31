@@ -1,26 +1,40 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { AuthenticationService } from '../_providers';
+import { MessageStatus } from '../_models/message.enum';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
-import { AuthenticationService } from '../_servicios';
-
+import { map } from 'rxjs/operators';
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-    constructor(private authenticationService: AuthenticationService) {}
+    constructor(private _service: AuthenticationService) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        return next.handle(request).pipe(catchError(err => {
-            if ( (err.status === 0)) {
-                console.log(err);
-                this.authenticationService.logout();
-                location.reload(true);
-            }
-            if (err.status === 401) {
+        return next.handle(request).pipe(
+            map(n => {
+                // this._service.hide();
+                // console.log(n);
+                // this._service.hide();
+                return n;
+            }),
+            catchError(err => {
+                this._service.hide();
+            if ((err.status === 0)) {
+                this._service.sendMessage(MessageStatus.error, 'error', 'Ocurrio un error con el recurso solicitado');
+                // console.log(err);
+                // this.authenticationService.logout();
+                // location.reload(true);
+            } else if (err.status == 404 ) {
+                this._service.sendMessage(MessageStatus.error, 'error', 'Ocurrio error, no se encontro el recurso');
+            }else if (err.status === 401) {
                 // auto logout if 401 response returned from api
-                this.authenticationService.logout();
+                this._service.logout();
                 location.reload(true);
+            } else {
+                this._service.sendMessage(MessageStatus.error, 'error', err.error.message);
             }
+
+            // this._service.sendMessage(MessageStatus.error, 'error', );
             const error = err.error.message || err.statusText;
             return throwError(err.error);
         }));

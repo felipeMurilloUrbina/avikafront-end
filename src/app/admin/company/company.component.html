@@ -1,0 +1,69 @@
+<div *ngIf="companies?.length == 0 && isLoad === true"  class="row col-6" style="margin: auto;">
+  <div class="col-3"><img src="assets/img/empty.png"/></div>
+  <div class="col-7">
+    <h5>No hay ninguna Categoria</h5>
+    <button type="button" pButton icon="fa fa-plus" iconPos="left" label="Agrega una nueva" (click)="new()" style="float:left; margin-top: 5px;" class="ui-button-success"></button>
+  </div>
+</div>
+
+<div *ngIf="companies?.length > 0" class="mat-elevation-z8">
+<p-table [columns]="cols" [value]="companies" emptyMessage="No hay Categorias"
+ [paginator]="true" 
+[rows]="10" [loading]="loading" #dt>
+  <ng-template pTemplate="caption">
+    <div style="text-align: right">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input type="text" pInputText size="50" placeholder="Busqueda" (input)="dt.filterGlobal($event.target.value, 'contains')"
+      style="width:auto">
+    </div>
+    <div class="ui-helper-clearfix">
+    <button type="button" pButton icon="fa fa-file-o" iconPos="left" label="Exportar" (click)="dt.exportCSV()" style="float:left"></button>
+    <button type="button" pButton icon="fa fa-refresh" iconPos="left" label="Refrescar" (click)="get()" style="float:left"></button>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+    <th *ngFor="let col of columns">{{col.header}}</th>
+    <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row let-columns="columns">
+    <tr [pSelectableRow]="row">
+    <td *ngFor="let col of columns">
+      {{_service.resolveFieldData(row, col.field)}}
+    </td>
+    <td>
+      <div class="text-center">
+        <button pButton type="button" icon="fa fa-pencil-square-o" label="Editar" (click) ="edit(row)" class="ui-button-secondary"iconPos="left"></button>
+        <button pButton type="button"  visible ="buttons."icon="fa fa-trash-o" label="Eliminar" (click) ="delete(row)" class="ui-button-secondary"iconPos="left"></button>
+
+      </div>
+    </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary" let-rowData>
+    <div style="text-align:left">
+      <button type="button" pButton icon="fa fa-plus" (click)="new()" label="Nuevo"></button>
+    </div>
+  </ng-template>
+</p-table>
+</div>
+
+<p-dialog header="{{titleDialog}}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="600">
+  <div class="ui-g ui-fluid" *ngIf="modifiedCategory">
+      <div class="ui-g-12">
+          <div class="ui-g-4">
+              <label for="description">Descripcion</label>
+          </div>
+          <div class="ui-g-8">
+              <input pInputText id="description" [(ngModel)]="modifiedCategory.description" />
+          </div>
+      </div>
+  </div>
+  <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+          <button type="button" *ngIf="buttons.buttonDelete" pButton icon="fa fa-close" (click)="deleteConfirm()" label="Eliminar"></button>
+          <button type="button" *ngIf="buttons.buttonSave" pButton icon="fa fa-check" (click)="save()" label="Guardar"></button>
+      </div>
+  </p-footer>
+</p-dialog>

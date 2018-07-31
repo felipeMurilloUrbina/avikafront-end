@@ -1,0 +1,67 @@
+<div class="col-md-12">
+  <div class="card">
+    <!-- <div class="card-header"></div> -->
+    <div class="card-body">
+      <form #userForm="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nombre:</label>
+              <input type="text" class="form-control" #nameInput id="name" [value]="usuario.name" (change)="usuario.name = nameInput.value" placeholder="Nombre ...">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Apellidos:</label>
+              <input type="text" class="form-control" #lastNameInput id="lastName" [value]="usuario.lastName" (change)="usuario.lastName = lastNameInput.value" id="apellido" placeholder="Apellido ...">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>RFC:</label>
+              <input type="text" class="form-control" #rfcInput [value]="usuario.rfc" (change)="usuario.rfc = rfcInput.value" id="rfc" placeholder="RFC ...">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Departamento:</label>
+              <select class="form-control select2" #departmentInput [value]="usuario.departmentId" (change)="usuario.departmentId = rfcInput.value" id="departmentId" style="width: 100%;">
+                <option selected="selected">Administrador</option>
+                <option>Empleado</option>
+                <option>Cliente</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Correo:</label>
+              <input type="email" class="form-control" #emailInput [value]="usuario.email" (change)="usuario.email = emailInput.value" id="departmentId" placeholder="Correo ...">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Tipo de Usuario:</label>
+              <select class="form-control select2" #emailInput [value]="usuario.email" (change)="usuario.email = emailInput.value" style="width: 100%;">
+                <option value="ABC" selected="selected">Administrador</option>
+                <option value="YTE">Empleado</option>
+                <option value="DBC">Cliente</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div  class="container-fluid text-center">
+          <a class="btn btn-app" routerLink="/admin/usuarios">
+            <i class="fa fa-arrow-circle-left"></i> Cancelar
+          </a>
+          <a class="btn btn-app"  (click)="guardar()">
+            <i class="fa fa-save"></i> Guardar
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

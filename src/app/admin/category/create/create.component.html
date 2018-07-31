@@ -1,0 +1,29 @@
+<div class="col-md-12">
+  <div class="card">
+    <!-- <div class="card-header"></div> -->
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>No:</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre ...">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Descripción:</label>
+            <input type="text" class="form-control" id="apellido" placeholder="Apellido ...">
+          </div>
+        </div>
+      </div>
+      <div  class="container-fluid text-center">
+        <a class="btn btn-app" routerLink="/admin/categorias">
+          <i class="fa fa-arrow-circle-left"></i> Cancelar
+        </a>
+        <a class="btn btn-app"  (click)="guardar()">
+          <i class="fa fa-save"></i> Guardar
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
