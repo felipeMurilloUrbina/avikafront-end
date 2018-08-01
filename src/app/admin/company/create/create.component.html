@@ -1,0 +1,37 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <form #companyForm="ngForm" (submit)="save(company);" ngNativeValidate>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Razón social:</label>
+              <input type="text" class="form-control"  #nameInput id="name" [value]="company.name" (change)="company.name = nameInput.value" placeholder="Razón Social ..." required>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Apellido Paterno:</label>
+              <input type="text" class="form-control" #lastNameInput id="rfc" [value]="company.rfc" (change)="company.rfc = rfcInput.value" placeholder="Apellido Paterno..." required>
+            </div>
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Dirección:</label>
+              <input type="text" class="form-control" #addressInput id="address" [value]="company.address" (change)="company.address = addressInput.value" placeholder="Dirección ...">
+            </div>
+          </div>
+        </div>
+        <div  class="container-fluid text-center">
+          <a class="btn btn-app" routerLink="/admin/sucursales">
+            <i class="fa fa-arrow-circle-left"></i> Cancelar
+          </a>
+          <button type="submit" class="btn btn-app"><i class="fa fa-save"></i>Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>  

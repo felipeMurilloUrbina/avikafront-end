@@ -27,7 +27,6 @@ export class CompanyComponent implements OnInit {
   ngOnInit() {
     this._service.getAll(1,20).subscribe(data => {
       this.companies = <Company[]>data['items'];
-      console.log(this.companies);
       this.isLoad = true;
       this._service.hide();
     });

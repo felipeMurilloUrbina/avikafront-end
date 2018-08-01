@@ -1,8 +1,8 @@
 <div *ngIf="companies?.length == 0 && isLoad === true"  class="row col-6" style="margin: auto;">
   <div class="col-3"><img src="assets/img/empty.png"/></div>
   <div class="col-7">
-    <h5>No hay ninguna Categoria</h5>
-    <button type="button" pButton icon="fa fa-plus" iconPos="left" label="Agrega una nueva" (click)="new()" style="float:left; margin-top: 5px;" class="ui-button-success"></button>
+    <h5>No hay ninguna Sucursal</h5>
+    <button type="button" pButton icon="fa fa-plus" iconPos="left" label="Agrega una nueva" routerLink="nuevo" routerLinkActive="active" style="float:left; margin-top: 5px;" class="ui-button-success"></button>
   </div>
 </div>
 
@@ -43,7 +43,7 @@
   </ng-template>
   <ng-template pTemplate="summary" let-rowData>
     <div style="text-align:left">
-      <button type="button" pButton icon="fa fa-plus" (click)="new()" label="Nuevo"></button>
+      <button type="button" pButton icon="fa fa-plus" routerLink="nuevo" routerLinkActive="active" label="Nuevo"></button>
     </div>
   </ng-template>
 </p-table>
