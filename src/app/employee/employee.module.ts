@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -14,8 +15,9 @@ import { StructEmployeeComponent } from './struct/struct/struct.component';
 @NgModule({
   declarations:[
     ContentComponent,
-    HeaderComponent,
     FooterComponent,
+    HeaderComponent,
+    HomeComponent,
     MenuComponent,
     StructEmployeeComponent
   ],
@@ -27,7 +29,7 @@ import { StructEmployeeComponent } from './struct/struct/struct.component';
     HttpClientModule,
     EmployeeRoutingModule
   ],
-  exports: [StructEmployeeComponent],
+  exports: [StructEmployeeComponent, HomeComponent],
   providers:[HttpClient]
 })
 export class EmployeeModule { }

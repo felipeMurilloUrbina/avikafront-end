@@ -47,6 +47,7 @@
               "src/assets/vendor/sparkline/jquery.sparkline.min.js",
               "src/assets/vendor/slimScroll/jquery.slimscroll.min.js",
               "src/assets/vendor/knob/jquery.knob.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
               "src/assets/vendor/chart.js/Chart.min.js",
               "./node_modules/@chenfengyuan/datepicker/dist/datepicker.js",
               "src/assets/vendor/jvectormap/jquery-jvectormap-1.2.2.min.js",

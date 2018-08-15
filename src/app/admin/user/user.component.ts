@@ -11,10 +11,11 @@ import { UserService } from '../../_providers/user.service';
 })
 export class UserComponent implements OnInit {
   title = 'Usuarios';
-  displayedColumns: string[] = ['id', 'fullName', 'tipo', 'tipo'];
-  dataSource: any;
-  constructor(private servicio: UserService) {
-    servicio.getAll(1,2).subscribe(users => {
+  users: User[];
+  cols: any[];
+  isLoad = false;
+  constructor(private _service : UserService) {
+    _service.getAll(1,2).subscribe(users => {
       // let us= <User[]>users;
       // this.dataSource = new MatTableDataSource(users);
     });

@@ -5,7 +5,8 @@ import { CreateComponent } from './create/create.component';
 
 const routes: Routes = [
   { path: '', component: CompanyComponent },
-  { path: 'nuevo', component: CreateComponent }
+  { path: 'nuevo', component: CreateComponent },
+  { path: 'editar/:id', component: CreateComponent }
 ];
 
 @NgModule({

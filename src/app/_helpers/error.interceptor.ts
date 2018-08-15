@@ -11,10 +11,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(
-            map(n => {
-                // this._service.hide();
-                // console.log(n);
-                // this._service.hide();
+            map(n => { 
                 return n;
             }),
             catchError(err => {
@@ -31,7 +28,10 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this._service.logout();
                 location.reload(true);
             } else {
-                this._service.sendMessage(MessageStatus.error, 'error', err.error.message);
+                console.log(err.error);
+                const error = err.error.message ? err.error.message: err.error.error_description;
+                console.log(error);
+                this._service.sendMessage(MessageStatus.error, 'error', error);
             }
 
             // this._service.sendMessage(MessageStatus.error, 'error', );

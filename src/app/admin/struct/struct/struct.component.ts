@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-struct',
   templateUrl: './struct.component.html',
@@ -8,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 export class StructComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit() {
   }
-
 }

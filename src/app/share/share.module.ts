@@ -7,6 +7,6 @@ import { CatComboComponent } from './cat-combo/cat-combo.component';
   imports: [
     CommonModule
   ],
-  declarations: [DeptComboComponent, CatComboComponent]
+  declarations: []
 })
 export class ShareModule { }

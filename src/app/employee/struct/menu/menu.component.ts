@@ -3,7 +3,7 @@ import { StructService } from '../struct.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
-  selector: 'app-menu-empleado',
+  selector: 'app-menu-employee',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css'],
   providers: [StructService]

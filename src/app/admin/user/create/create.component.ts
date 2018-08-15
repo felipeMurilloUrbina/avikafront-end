@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
   titulo ='Nuevo Usuario';
-  constructor() { }
+  constructor(private _route: ActivatedRoute) { }
 
   ngOnInit() {
   }

@@ -19,7 +19,6 @@ declare var $: any;
 export class BaseService {
 
   private actionUrl: string;
-  // private toasterService: ToasterService;
   httpOptions: any;
   constructor(public http: HttpClient, public endPoint: string, private toasterService: ToasterService) {
     this.actionUrl = environment.urlBase + endPoint;
@@ -43,16 +42,24 @@ export class BaseService {
   }
 
   public getSingle <T> (id: number) {
-    return this.http.get <T> (this.actionUrl + id);
+    return this.http.get <T> (this.actionUrl + '/' + id);
   }
 
-  public add <T> (itemName: T, endPoint) {
+  public save<T>(itemName, endPoint) {
+    if(itemName.id) {
+      return this.update(itemName, endPoint);
+    } else {
+      return this.add(itemName, endPoint);
+    }
+  }
+
+  add <T> (itemName: T, endPoint) {
     return this.http.post <T> (this.actionUrl, itemName, this.httpOptions);
   }
 
-  public update <T> (id: number, itemToUpdate: any) {
+  update <T> (itemToUpdate: any, endPoint) {
     return this.http
-      .put <T> (this.actionUrl, JSON.stringify(itemToUpdate), this.httpOptions);
+      .put<T>(this.actionUrl, itemToUpdate, this.httpOptions);
   }
 
   public delete <T> (id: number) {

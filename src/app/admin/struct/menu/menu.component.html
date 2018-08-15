@@ -17,24 +17,17 @@
         <a routerLink="perfil" routerLinkActive="active" class="d-block">{{usuario.unique_name}}</a>
       </div>  
     </div>
-    <div class="col-12 text-center">
-      <div class="info">
-        <a href="#" class="d-block">
-          <i class="fa fa-lock fa-4x"></i>
-          <p class="d-block">Salir</p>
-        </a>
-      </div>
-    </div>
-    <!-- Sidebar Menu -->
-    <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
-          with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+    
+       <!-- Sidebar Menu -->
+       <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li id="catalogs" class="nav-item has-treeview" (click)="openMenu($event)">
+            <a  class="nav-link active">
               <i class="nav-icon fa fa-address-card"></i>
               <p>
-                Administración
+                Catalogos
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
@@ -64,48 +57,47 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a routerLink="nominas" routerLinkActive="active" class="nav-link">
+                  <i class="fa fa-file-code-o nav-icon"></i>
+                  <p> Nominas</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a class="nav-link active">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>
+                Mod. de Info.
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
                 <a routerLink="noticias" routerLinkActive="active"  class="nav-link">
                   <i class="fa fa-bullhorn nav-icon"></i>
                   <p> Noticias</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a routerLink="categorias" routerLinkActive="active"  class="nav-link">
-                  <i class="fa fa fa-bell-o nav-icon"></i>
-                  <p> Noticias</p>
-                </a>
-              </li> -->
               <li class="nav-item">
-                <a routerLink="categorias" routerLinkActive="active"  class="nav-link">
+                <a routerLink="clasificaciones" routerLinkActive="active"  class="nav-link">
                   <i class="fa fa-list-alt nav-icon"></i>
-                  <p> Categorias</p>
+                  <p> Clasificaciones</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a routerLink="nominas" routerLinkActive="active" class="nav-link">
-                  <i class="fa fa-file-code-o nav-icon"></i>
-                  <p> Noticias</p>
-                </a>
-              </li>
-              <!-- <li class="nav-item">
-                <a routerLink="lineas" routerLinkActive="active"  class="nav-link">
-                  <i class="{{reporte.icono}}"></i>
-                  <p></p>
-                </a>
-              </li> -->
             </ul>
-            <!-- <ul class="nav nav-treeview" *ngFor="let reporte of reportes">
-              <li class="nav-item">
-                <a routerLink="lineas" routerLinkActive="active"  class="nav-link">
-                  <i class="{{reporte.icono}}"></i>
-                  <p>{{reporte.nombre}}</p>
-                </a>
-              </li>
-            </ul> -->
           </li>
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
-    </div>
+    <!-- /.sidebar-menu -->
     <!-- /.sidebar -->
+    <div class="col-12 text-center">
+      <div class="info">
+        <a class="d-block" (click)="logout()">
+          <i class="fa fa-lock fa-4x"></i>
+          <p class="d-block">Salir</p>
+        </a>
+      </div>
+    </div>
+  </div>
   </aside>

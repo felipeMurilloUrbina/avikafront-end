@@ -65,8 +65,25 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
+                <label for="companyId">Sucursal:</label>
+                <select id="companyId" class="form-control select2" name="companyId" [(ngModel)]="employee.companyId"  style="width: 100%;">
+                  <option value ="" selected="selected">[*Seleccione la sucursal]</option>
+                  <option value="{{company.id}}" *ngFor="let company of companies">{{company.code + '-' + company.description}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="job">Puesto:</label>
+                <input type="text" class="form-control" #jobInput [value]="employee.job" (change)="employee.job = jobInput.value" id="gauge" placeholder="Puesto ...">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
                 <label for="gauge">Salario:</label>
-                <input type="number" class="form-control" #gaugeInput [value]="employee.guage" (change)="employee.gauge = gaugeInput.value" id="gauge" placeholder="Salario ...">
+                <input type="number" class="form-control" #gaugeInput [value]="employee.gauge" (change)="employee.gauge = gaugeInput.value" id="gauge" placeholder="Salario ...">
               </div>
             </div>
             <div class="col-md-6">

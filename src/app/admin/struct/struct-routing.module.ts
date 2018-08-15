@@ -8,7 +8,7 @@ const routes: Routes = [
       path: '', component: StructComponent,
       children: [
         { path:'', redirectTo: 'departamentos', pathMatch: 'full' },
-        { path: 'categorias', loadChildren: '../category/category.module#CategoryModule', canActivate: [AuthGuard] },
+        { path: 'clasificaciones', loadChildren: '../category/category.module#CategoryModule', canActivate: [AuthGuard] },
         { path: 'departamentos', loadChildren: '../department/department.module#DepartmentModule', canActivate: [AuthGuard] },
         { path: 'usuarios', loadChildren: '../user/user.module#UserModule', canActivate: [AuthGuard] },
         { path: 'empleados', loadChildren: '../employee/employee.module#EmployeeModule', canActivate: [AuthGuard] },

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Department } from '../../../_models/department.model';
 import { DepartmentService } from '../../../_providers/department.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -11,7 +12,7 @@ import { DepartmentService } from '../../../_providers/department.service';
 export class CreateComponent implements OnInit {
   title = 'Nuevo Departamento';
   department: Department;
-  constructor(private _service: DepartmentService) {
+  constructor(private _route: ActivatedRoute, private _service: DepartmentService) {
     this.department = new Department();
    }
 

@@ -1,6 +1,6 @@
 export class Company { 
     public id: number;
-    public name = '';
-    public rfc = '';
+    public code = '';
+    public description = '';
     public address = '';
 }

@@ -13,12 +13,13 @@ export class CompanyComponent implements OnInit {
   title = 'Sucursales';
   companies: Company[];
   cols: any[];
-  isLoad= false;
+  isLoad = false;
   buttons: ButtonsVisible;
 
   constructor(private _service: CompanyService) {
     this.cols = [
       { field: 'id', header: 'Codigo' },
+      { field: 'code', header: 'Clave' },
       { field: 'description', header: 'Descripcion' },
     ]; 
     this.buttons = new ButtonsVisible();

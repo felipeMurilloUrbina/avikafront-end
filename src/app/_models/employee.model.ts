@@ -1,7 +1,7 @@
 export class Employee {
     id: number;
     DepartmentId: number;
-    companyId: number;
+    companyId = '';
     name = '';
     lastName= '';
     motherLastName = '';

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   isBlocked =  false;
   usuario: User;
   constructor(private router: Router, private _fb: FormBuilder, private servicio: AuthenticationService) {
-    localStorage.removeItem('token');
+    // localStorage.removeItem('token');
   }
 
   ngOnInit() {

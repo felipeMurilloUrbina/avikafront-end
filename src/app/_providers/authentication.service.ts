@@ -33,6 +33,7 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('token');
+        location.reload(true);
     }
     sendMessage(option, title, message) {
         this.toasterService.pop(option, title, message);

@@ -26,6 +26,7 @@
     "@chenfengyuan/datepicker": "^1.0.0-beta",
     "angular2-toaster": "^6.1.0",
     "core-js": "^2.5.4",
+    "popper.js": "^1.14.3",
     "font-awesome": "^4.7.0",
     "moment": "^2.22.2",
     "primeicons": "^1.0.0-beta.10",

@@ -34,7 +34,7 @@
     </td>
     <td>
       <div class="text-center">
-        <button pButton type="button" icon="fa fa-pencil-square-o" label="Editar" (click) ="edit(row)" class="ui-button-secondary"iconPos="left"></button>
+        <button pButton type="button" icon="fa fa-pencil-square-o" label="Editar" [routerLink]="['editar', row.id]" class="ui-button-secondary"iconPos="left"></button>
         <button pButton type="button"  visible ="buttons."icon="fa fa-trash-o" label="Eliminar" (click) ="delete(row)" class="ui-button-secondary"iconPos="left"></button>
 
       </div>
